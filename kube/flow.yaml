@@ -1,0 +1,28 @@
+---
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: Flow
+metadata:
+  name: flow-sample
+  namespace: default
+spec:
+  filters:
+    - stdout:
+        output_type: json
+    - tag_normaliser: { }
+    - parser:
+        parse:
+          type: json
+        remove_key_name_field: true
+        reserve_data: true
+# nur ein selector erlaubt, deshalb auskommentiert.
+#  selectors:
+#    app: metrics-and-logging
+  localOutputRefs:
+    - output-loki
+#    - nulloutput
+#    - sample-output-file
+  match:
+# deprecated
+    - select:
+        labels:
+          app: metrics-and-logging

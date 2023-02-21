@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: metrics-and-logging
+  labels:
+    app.kubernetes.io/name: metrics-and-logging
+spec:
+  selector:
+    app.kubernetes.io/name: metrics-and-logging
+  ports:
+    - protocol: TCP
+      port: 9999
+      targetPort: management
+      name: management

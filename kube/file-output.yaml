@@ -1,0 +1,14 @@
+---
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: Output
+metadata:
+  name: sample-output-file
+spec:
+  file:
+    append: true
+    path: /tmp/logs/${tag}/%Y/%m/%d.%H.%M
+    create_dirs: true
+    buffer:
+      timekey: 1m
+      timekey_wait: 30s
+      timekey_use_utc: true

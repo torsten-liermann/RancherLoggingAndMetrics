@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: metrics-and-logging
+  name: metrics-and-logging
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: metrics-and-logging
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: metrics-and-logging
+    spec:
+      containers:
+        - name: metrics-and-logging
+          image: server9.liermann-it.de:6666/metrics-and-logging:latest
+          imagePullPolicy: Always
+          env:
+           - name: SERVER_PORT
+             value: '80'
+           - name: MANAGEMENT_SERVER_PORT
+             value: '9999'
+           - name: JSON_LOGGING
+             value: 'true'
+           - name: DEBUG
+             value: 'true'
+          ports:
+            - containerPort: 80
+              name: http
+              protocol: TCP
+            - containerPort: 9999
+              name: management
+              protocol: TCP
+          resources:
+            limits:
+              memory: 1024Mi
