@@ -1,9 +1,9 @@
-# Logging und Metriken im Rancher
+# Logging and metrics in Rancher
 
-## Logging über Rancher UI installieren
+## Install Logging via Rancher UI
 [Enabling Logging](https://ranchermanager.docs.rancher.com/pages-for-subheaders/logging#enabling-logging)
 
-## Monitoring über Rancher UI installieren
+## Install monitoring via Rancher UI
 [Install the Monitoring Application](https://ranchermanager.docs.rancher.com/how-to-guides/advanced-user-guides/monitoring-alerting-guides/enable-monitoring#install-the-monitoring-application)
 
 ## Loki deployen
@@ -15,5 +15,5 @@
 ## Demo App in Docker Registry deployen
     mvnw package
 
-## Nach Kubernetes deployen
+## Deploy to Kubernetes
     cat kube/*.yaml | kubectl apply -f
