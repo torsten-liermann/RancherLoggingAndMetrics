@@ -7,7 +7,7 @@ spec:
   file:
     append: true
     path: /tmp/logs/${tag}/%Y/%m/%d.%H.%M
-    create_dirs: true
+#    create_dirs: true
     buffer:
       timekey: 1m
       timekey_wait: 30s

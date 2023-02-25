@@ -63,15 +63,21 @@
 							<BP_JVM_VERSION>${java.version}</BP_JVM_VERSION>
 						</env>
 					</image>
-					<!--
 					<docker>
 						<publishRegistry>
 							<username>admin</username>
 							<password>admin</password>
 						</publishRegistry>
 					</docker>
-					-->
 				</configuration>
+				<executions>
+					<execution>
+						<id>build-and-push-image</id>
+						<goals>
+							<goal>build-image</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
